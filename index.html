@@ -987,6 +987,16 @@ a:hover {
   box-shadow: 0 10px 22px rgba(0,0,0,0.22);
 }
 
+.manual-gif {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  margin: 16px 0 18px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
 pre, pre code, code {
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -1810,6 +1820,14 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 <h4>Diffuse Mode</h4>
 <p>The light is placed along the <strong>surface normal</strong> of the clicked point. Use this for direct, diffuse-facing illumination. The viewport guide line is drawn in <strong class="hl-amber">muted amber</strong>.</p>
 <h3>Mouse Control Reference</h3>
+<p>The demo below shows the main placement controls: placing a light, adjusting distance, scaling, spinning, and orbiting around the saved anchor point.</p>
+
+<img
+  src="images/placement_controls.gif"
+  alt="illumiDrop placement controls showing distance, scale, spin, and orbit"
+  class="manual-gif"
+/>
+
 <div class="tbl-wrap">
 <table>
 <thead><tr><th>Control</th><th>Result</th></tr></thead>
