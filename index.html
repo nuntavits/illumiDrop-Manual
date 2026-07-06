@@ -1491,10 +1491,11 @@ pre.cmd code {
 <div id="sidebar-overlay"></div>
 <!-- ═══════════════════════════════════════════════════════ SIDEBAR -->
 <aside id="sidebar">
-<div class="sidebar-header"><div class="logo-mark"><img alt="illumiDrop icon" class="sidebar-icon" src="images/illumiDrop_shelf.png"/><div><div class="logo-text">illumiDrop</div><div class="logo-sub">User Manual</div></div></div><span class="version-badge">v1.0</span></div>
+<div class="sidebar-header"><div class="logo-mark"><img alt="illumiDrop icon" class="sidebar-icon" src="images/illumiDrop_shelf.png"/><div><div class="logo-text">illumiDrop</div><div class="logo-sub">User Manual</div></div></div><span class="version-badge">v1.1.0</span></div>
 <nav>
 <div class="nav-section">Getting Started</div>
 <a href="#overview">Overview</a>
+<a href="#whats-new">What’s New in v1.1.0</a>
 <a href="#installation">Installation</a>
 <a href="#launching">Launching / Hotkeys</a>
 <div class="nav-section">Interface</div>
@@ -1504,11 +1505,13 @@ pre.cmd code {
 <div class="nav-section">Working with Lights</div>
 <a href="#creating-lights">Creating Lights</a>
 <a href="#placement">Placement &amp; Mouse Controls</a>
+<a href="#offset-support">Offset Support</a>
 <a href="#dome-lights">Dome Lights</a>
 <a href="#exposure">Exposure Control</a>
 <a href="#ramp-texture">Ramp &amp; Texture</a>
 <a href="#multi-select">Multi-Selection</a>
 <a href="#solo">Solo / Unsolo</a>
+<a href="#looks">Looks</a>
 <a href="#viewport-guides">Viewport Guides</a>
 <div class="nav-section">HDR Browser</div>
 <a href="#browser-usage">Browser Interactions</a>
@@ -1525,12 +1528,12 @@ pre.cmd code {
 <div class="hero">
 <img alt="illumiDrop banner" class="hero-banner-img" src="images/illumiDrop_banner.png"/>
 <div class="hero-title">illumiDrop</div>
-<p class="hero-desc">Interactive light placement tool for Autodesk Maya. Place, manage, and fine-tune renderer lights directly from a compact panel — with HDR support, ramp falloff, viewport guides, and background preview generation.</p>
+<p class="hero-desc">Interactive light placement tool for Autodesk Maya. Place, manage, and fine-tune renderer lights directly from a compact panel — with HDR support, ramp falloff, offset-friendly placement, looks, viewport guides, and background preview generation.</p>
 <div class="hero-tags">
 <span class="tag">Arnold</span>
 <span class="tag">Redshift</span>
 <span class="tag">V-Ray</span>
-<span class="tag green">v1.0</span>
+<span class="tag green">v1.1.0</span>
 <span class="tag amber">Maya 2024+</span>
 </div>
 </div>
@@ -1540,12 +1543,14 @@ pre.cmd code {
 <p>illumiDrop is an interactive light placement tool for Maya. It allows artists to create, place, adjust, and manage renderer lights directly from a compact floating panel — without needing to manually edit transforms or navigate Maya's Attribute Editor for common tasks.</p>
 <ul class="feature-list">
 <li><strong>Interactive Placement</strong> — Click or drag on any mesh surface to place and reposition lights. Reflection and Diffuse modes give you precise control over how the light is aimed.</li>
+<li><strong>Offset Support</strong> — Fine-tune a placed light with manual position or rotation adjustments, then place it again without losing that custom offset.</li>
+<li><strong>Looks</strong> — Save and switch between lighting variations in the same Maya scene, with a modified indicator when the current setup differs from the saved look.</li>
 <li><strong>Viewport Guides</strong> — After placement, illumiDrop draws guide lines from each light to its anchor point, color-coded by placement mode.</li>
 <li><strong>Light Management</strong> — A live light list tracks every managed light with per-row exposure, visibility, lock, ramp/texture, and light linking controls.</li>
-<li><strong>HDR Browser</strong> — Browse and assign .hdr, .hdri, and .exr images to area lights or dome lights, with optional sidecar JPEG preview generation.</li>
+<li><strong>HDR Browser</strong> — Browse and assign .hdr, .hdri, and .exr images to area lights or dome lights, with optional sidecar preview images.</li>
 </ul>
 <h3>Supported Renderers</h3>
-<p>illumiDrop v1.0 supports the following renderer plugins for Maya:</p>
+<p>illumiDrop v1.1.0 supports the following renderer plugins for Maya:</p>
 <div class="tbl-wrap">
 <table>
 <thead><tr><th>Renderer</th><th>Light Types Created</th></tr></thead>
@@ -1560,9 +1565,29 @@ pre.cmd code {
 <h3>Supported HDR Formats</h3>
 <p>The HDR browser and preview generator support <code>.hdr</code>, <code>.hdri</code>, and <code>.exr</code> files. Other image formats are not supported for preview generation.</p>
 </section>
+
+<!-- ─── WHAT'S NEW ─────────────────────────────────────────── -->
+<section class="section" id="whats-new">
+<h2><span class="h2-num">02</span> What’s New in v1.1.0</h2>
+<p>illumiDrop v1.1.0 focuses on making lighting setups easier to refine, compare, and keep stable while working in production scenes.</p>
+<h3>New Features</h3>
+<ul class="feature-list">
+<li><strong>Offset Support</strong> — After placing a light, you can manually adjust its position or rotation for fine-tuning. When you place the light again, illumiDrop keeps that custom offset instead of resetting it.</li>
+<li><strong>Looks</strong> — Save multiple lighting variations in the same scene and switch between them when comparing different moods, product views, or client options. illumiDrop also shows when the current lighting setup has changed from the saved look.</li>
+</ul>
+<h3>Stability &amp; Workflow Improvements</h3>
+<ul class="feature-list">
+<li><strong>Safer Editing</strong> — Duplicating, renaming, assigning textures, removing ramps, and switching looks have been improved to better preserve each light’s setup.</li>
+<li><strong>Improved Light Linking Feedback</strong> — The light list more clearly shows default links, custom links, and lights that currently affect nothing.</li>
+<li><strong>Preview and Installer Updates</strong> — HDR/EXR preview generation and the drag-and-drop shelf installer have been updated for a more reliable setup experience.</li>
+<li><strong>Better Scene Compatibility</strong> — Scenes created with earlier versions are handled more safely when opened in v1.1.0.</li>
+</ul>
+<div class="callout info"><span class="callout-icon">ℹ</span><div>v1.1.0 is designed to stay compatible with scenes created in earlier versions. Existing illumiDrop lights are updated automatically when possible.</div></div>
+</section>
+
 <!-- ─── 2. INSTALLATION ──────────────────────────────────────── -->
 <section class="section" id="installation">
-<h2><span class="h2-num">02</span> Installation</h2>
+<h2><span class="h2-num">03</span> Installation</h2>
 <h3>Requirements</h3>
 <div class="tbl-wrap">
 <table>
@@ -1598,7 +1623,7 @@ pre.cmd code {
 <li>
 <span class="step-num">3</span>
 <div class="step-body">
-  illumiDrop will add a shelf button to the currently active Maya shelf. Existing shelf buttons are not removed or modified.
+  illumiDrop will add one shelf button to the currently active Maya shelf. Existing shelf buttons are not removed or modified. The installer supports the package being installed beside the installer file or with the installer file inside the package folder.
 </div>
 </li>
 <li>
@@ -1644,7 +1669,7 @@ pre.cmd code {
 </section>
 <!-- ─── 3. LAUNCHING ─────────────────────────────────────────── -->
 <section class="section" id="launching">
-<h2><span class="h2-num">03</span> Launching / Shelf / Hotkeys</h2>
+<h2><span class="h2-num">04</span> Launching / Shelf / Hotkeys</h2>
 <h3>Shelf Button</h3>
 <p>Click the illumiDrop shelf button to open the UI. Running the command again while the window is already open will bring it to the front.</p>
 <h3>Script Editor Command</h3>
@@ -1655,6 +1680,11 @@ illumiDrop.<span class="fn">show</span>()</code></pre>
 <p>To toggle the placement tool on and off with a hotkey, use:</p>
 <pre><code><span class="kw">import</span> illumiDrop
 illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
+<h3>Optional Separate Start / Stop Hotkeys</h3>
+<p>If you prefer separate hotkeys for starting and stopping placement, use these commands:</p>
+<pre><code><span class="kw">import</span> illumiDrop
+illumiDrop.<span class="fn">set_tool_active</span>(True)   <span class="com"># Start placement</span>
+illumiDrop.<span class="fn">set_tool_active</span>(False)  <span class="com"># Stop placement</span></code></pre>
 <div class="callout tip">
 <span class="callout-icon">✓</span>
 <div>illumiDrop remembers its window position and height during the current Maya session. The window width is managed separately by the collapsed/expanded browser state and UI scale settings.</div>
@@ -1662,7 +1692,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 4. UI OVERVIEW ───────────────────────────────────────── -->
 <section class="section" id="ui-overview">
-<h2><span class="h2-num">04</span> UI Overview</h2>
+<h2><span class="h2-num">05</span> UI Overview</h2>
 <img
   src="images/ui_overview.png"
   alt="illumiDrop UI overview showing the left light list panel and right HDR browser panel"
@@ -1677,6 +1707,8 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 <dd>Creates a new plain area light for the selected renderer. After creation, select the light in the list and press <span class="ui-btn start-neutral">Start illumiDrop</span> to begin placing it.</dd>
 <dt>Placement Mode — Reflection / Diffuse</dt>
 <dd>Segmented control that switches between Reflection and Diffuse placement modes. This persists between sessions.</dd>
+<dt>Looks</dt>
+<dd>Four buttons for saving and restoring lighting variations in the current scene. A saved Look can be restored with one click, and a modified Look is highlighted when the current lighting no longer matches the saved version.</dd>
 <dt>Start / Stop illumiDrop</dt>
 <dd>Activates or deactivates the interactive placement tool for the selected light. The button is disabled when no compatible light is selected. When a light is selected, the button becomes available as <span class="ui-btn start-neutral">Start illumiDrop</span>. While placement is active, the button turns green and reads <span class="ui-btn active">Stop illumiDrop</span>.</dd>
 <dt>Light List</dt>
@@ -1701,7 +1733,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </dl>
 </section>
 <!-- ─── 5. LIGHT LIST ────────────────────────────────────────── -->
-<section class="section" id="light-list"><h2><span class="h2-num">05</span> Light List</h2>
+<section class="section" id="light-list"><h2><span class="h2-num">06</span> Light List</h2>
 <p>Each row in the light list represents one illumiDrop-managed light. The controls are arranged left to right: visibility, lock, light linking, light name, exposure, and texture/ramp state.</p>
 <div class="light-row-demo">
 <div class="row-icon-pill state-visible"><img alt="Visible" class="row-demo-icon" src="images/visible.svg"/></div>
@@ -1721,13 +1753,13 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </div>
 <div class="control-ref-row">
 <div class="control-ref-label"><img alt="" src="images/unlocked.svg"/>Lock</div>
-<div class="control-ref-body">Toggles the light between unlocked and locked. Locked lights are protected from placement, rename, delete, duplicate, and texture assignment.
+<div class="control-ref-body">Toggles the light between unlocked and locked. Locked lights are protected from placement, rename, delete, duplicate, texture assignment, and light-linking edits.
       <div class="state-chip-row"><span class="state-chip"><img alt="" src="images/unlocked.svg"/>Unlocked</span><span class="state-chip"><img alt="" src="images/locked.svg"/>Locked</span></div>
 </div>
 </div>
 <div class="control-ref-row">
 <div class="control-ref-label"><img alt="" src="images/unlinked.svg"/>Light Linking</div>
-<div class="control-ref-body">Shows how the light is linked in Maya. Click the icon to open Maya’s native Light Linking Editor.
+<div class="control-ref-body">Shows how the light is linked in Maya. Click the icon to open Maya’s native Light Linking Editor. A red Ø state means the light currently affects nothing.
       <div class="state-chip-row"><span class="state-chip"><img alt="" src="images/unlinked.svg"/>Default Link</span><span class="state-chip linked"><img alt="" src="images/linked.svg"/>Custom Link</span><span class="state-chip danger">Ø Affects Nothing</span></div>
 </div>
 </div>
@@ -1755,7 +1787,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </tbody></table></div></section>
 <!-- ─── 6. HDR BROWSER ───────────────────────────────────────── -->
 <section class="section" id="hdr-browser">
-<h2><span class="h2-num">06</span> HDR Browser</h2>
+<h2><span class="h2-num">07</span> HDR Browser</h2>
 <p>The HDR Browser is the right-hand panel of illumiDrop. It scans a selected folder and displays thumbnails of all found HDR/EXR images. It has two tabs: <strong>HDR Lights</strong> (for area lights) and <strong>Dome</strong> (for dome lights).</p>
 <div class="callout info">
 <span class="callout-icon">ℹ</span>
@@ -1792,7 +1824,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 7. CREATING LIGHTS ──────────────────────────────────── -->
 <section class="section" id="creating-lights">
-<h2><span class="h2-num">07</span> Creating Lights</h2>
+<h2><span class="h2-num">08</span> Creating Lights</h2>
 <h3>+ Light Button (Plain Area Light)</h3>
 <p>The <span class="ui-btn light-btn">+ Light</span> button creates a new plain area light for the selected renderer. After creation, the new light is automatically selected in the list. Press <span class="ui-btn start-neutral">Start illumiDrop</span> to begin placing it in the viewport.</p>
 <h3>From the HDR Browser — HDR Area Light</h3>
@@ -1800,11 +1832,11 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 <h3>From the HDR Browser — Dome Light</h3>
 <p>Double-click any thumbnail in the <strong>Dome</strong> tab to create a new dome light with that image connected. Dome lights are placed at the scene origin and cannot be placed on mesh surfaces.</p>
 <h3>From the Thumbnail Context Menu</h3>
-<p>Right-clicking any thumbnail provides dedicated <em>Create New HDR Light</em> and <em>Create New Dome Light</em> options regardless of which tab is active.</p>
+<p>Right-clicking a thumbnail provides a create option based on the active tab: <strong>Create New HDR Light</strong> in the HDR Lights tab, or <strong>Create New Dome Light</strong> in the Dome tab.</p>
 </section>
 <!-- ─── 8. PLACEMENT ─────────────────────────────────────────── -->
 <section class="section" id="placement">
-<h2><span class="h2-num">08</span> Placement &amp; Mouse Controls</h2>
+<h2><span class="h2-num">09</span> Placement &amp; Mouse Controls</h2>
 <p>To place a light, select it in the light list and press <span class="ui-btn start-neutral">Start illumiDrop</span>. The tool intercepts viewport mouse events until you press <span class="ui-btn">Stop illumiDrop</span> or click the button again.</p>
 <div class="callout warning">
 <span class="callout-icon">⚠</span>
@@ -1849,10 +1881,29 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </div>
 <h3>Placement Sensitivity</h3>
 <p>The speed of placement and orbit gestures can be adjusted in <a href="#settings">Settings → Placement Sensitivity</a> (range: 0.25× to 2.00×).</p>
+<div class="callout tip"><span class="callout-icon">✓</span><div>In v1.1.0, manual position or rotation fine-tuning can be preserved when you place the light again. See <a href="#offset-support">Offset Support</a>.</div></div>
 </section>
+
+<!-- ─── OFFSET SUPPORT ─────────────────────────────────────── -->
+<section class="section" id="offset-support">
+<h2><span class="h2-num">10</span> Offset Support</h2>
+<p>Offset support lets you fine-tune a placed light without losing that adjustment the next time you place it.</p>
+<p>For example, you can place a light on a surface, then manually move or rotate the light slightly to improve the highlight, reflection, or composition. When you place the light again with illumiDrop, that manual offset is kept.</p>
+<h3>When to Use Offset Support</h3>
+<ul class="feature-list">
+<li><strong>Fine-tuning reflections</strong> — Place the light quickly, then make a small manual adjustment for the exact highlight shape you want.</li>
+<li><strong>Art direction</strong> — Keep a creative offset while still using illumiDrop to reposition the light from surface clicks.</li>
+<li><strong>Animation-friendly setup</strong> — Keep placement behavior separate from your manual light adjustment, making the setup easier to control later.</li>
+</ul>
+<h3>Reset Custom Offset</h3>
+<p>If a light has been manually adjusted after placement, you can reset that custom offset from the light row right-click menu. This returns the light to its clean placed position while keeping the light in the scene.</p>
+<div class="callout tip"><span class="callout-icon">✓</span><div>Use <strong>Reset Custom Offset</strong> when the manual adjustment is no longer needed and you want the light to follow the placement result directly again.</div></div>
+<div class="callout info"><span class="callout-icon">ℹ</span><div>In the Maya Outliner, illumiDrop lights may appear with a helper group. This is normal and allows offset support to work. You do not need to edit that helper group manually.</div></div>
+</section>
+
 <!-- ─── 9. DOME LIGHTS ───────────────────────────────────────── -->
 <section class="section" id="dome-lights">
-<h2><span class="h2-num">09</span> Dome Lights</h2>
+<h2><span class="h2-num">11</span> Dome Lights</h2>
 <p>Dome lights behave differently from area lights in illumiDrop. They are <strong>environment rotation-only</strong> lights — they cannot be placed on mesh surfaces and always remain at the scene origin.</p>
 <h3>Dome Rotation</h3>
 <p>When a dome light is selected and illumiDrop is active, dragging <kbd>LMB</kbd> in the viewport rotates the dome environment horizontally. The in-view message reads <em>"LMB Drag rotate dome"</em> to indicate this mode.</p>
@@ -1873,7 +1924,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 10. EXPOSURE ─────────────────────────────────────────── -->
 <section class="section" id="exposure">
-<h2><span class="h2-num">10</span> Exposure Control</h2>
+<h2><span class="h2-num">12</span> Exposure Control</h2>
 <p>Exposure is controlled per-light from the <a href="#light-list">light row</a> in the panel. All exposure changes on selected lights are undoable.</p>
 <p>When multiple lights are selected, adjusting the exposure of the primary light's row applies the change to all selected compatible lights simultaneously.</p>
 <div class="callout tip">
@@ -1883,7 +1934,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 11. RAMP & TEXTURE ──────────────────────────────────── -->
 <section class="section" id="ramp-texture">
-<h2><span class="h2-num">11</span> Ramp &amp; Texture</h2>
+<h2><span class="h2-num">13</span> Ramp &amp; Texture</h2>
 <h3>Applying a Ramp</h3>
 <p>If a light has no active texture or ramp, click the <code>T</code> square in the light row to create and connect a ramp falloff node to that light. A gradient preview will appear in the square.</p>
 <p>To apply a ramp to multiple selected lights, right-click any <code>T</code> square and choose <strong>Apply Ramp to Selected Lights</strong>.</p>
@@ -1916,7 +1967,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 12. MULTI-SELECTION ──────────────────────────────────── -->
 <section class="section" id="multi-select">
-<h2><span class="h2-num">12</span> Multi-Selection</h2>
+<h2><span class="h2-num">14</span> Multi-Selection</h2>
 <p>illumiDrop supports selecting multiple lights at once for batch operations.</p>
 <h3>Selecting Multiple Lights</h3>
 <div class="tbl-wrap">
@@ -1949,7 +2000,7 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 13. SOLO / UNSOLO ─────────────────────────────────────── -->
 <section class="section" id="solo">
-<h2><span class="h2-num">13</span> Solo / Unsolo</h2>
+<h2><span class="h2-num">15</span> Solo / Unsolo</h2>
 <p>Solo temporarily hides all other illumiDrop-managed lights, leaving only the soloed light (or lights) visible. This is useful for evaluating a single light's contribution without deleting or permanently hiding others.</p>
 <h3>How it Works</h3>
 <ol class="steps">
@@ -1978,10 +2029,42 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </div>
 <p>Access Solo and Unsolo from the light row <a href="#context-menus">right-click context menu</a>.</p>
 </section>
+
+<!-- ─── LOOKS ──────────────────────────────────────────────── -->
+<section class="section" id="looks">
+<h2><span class="h2-num">16</span> Looks</h2>
+<p>Looks let you save and switch between different lighting setups in the same Maya scene. They are useful for comparing mood variations, product lighting options, client review versions, or different render directions without rebuilding lights manually.</p>
+<h3>Look Buttons</h3>
+<p>illumiDrop provides four Look buttons. Each button can store one lighting setup in the current Maya scene.</p>
+<div class="tbl-wrap">
+<table>
+<thead><tr><th>Button State</th><th>Behavior</th></tr></thead>
+<tbody>
+<tr><td>Empty Look</td><td>Left-click to save the current lighting setup into that Look. Right-click for Look options.</td></tr>
+<tr><td>Saved Look</td><td>Left-click to restore that Look. Right-click to save over it, restore it, rename it, or clear it.</td></tr>
+<tr><td>Modified Look</td><td>The active Look is highlighted when the current lighting setup no longer matches the saved version.</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Typical Workflow</h3>
+<ol class="steps">
+<li><span class="step-num">1</span><div class="step-body">Create and adjust your lights until the setup looks right.</div></li>
+<li><span class="step-num">2</span><div class="step-body">Click an empty Look button to save the current lighting setup.</div></li>
+<li><span class="step-num">3</span><div class="step-body">Create another lighting variation and save it to another Look button.</div></li>
+<li><span class="step-num">4</span><div class="step-body">Click a saved Look button to restore and compare lighting setups.</div></li>
+</ol>
+<h3>Modified Look Indicator</h3>
+<p>When the current lighting setup has changed from the saved Look, illumiDrop shows the Look as modified. This is a reminder that the scene no longer exactly matches the saved version.</p>
+<div class="callout warning"><span class="callout-icon">⚠</span><div>If you switch to another Look while the current one is modified, changes that were not saved to a Look may be replaced by the loaded Look.</div></div>
+<h3>Look Warnings</h3>
+<p>illumiDrop can warn before overwriting or clearing saved Looks. This warning is enabled by default and can be turned off in Settings if you prefer a faster workflow.</p>
+<div class="callout info"><span class="callout-icon">ℹ</span><div>Looks are intended for illumiDrop-managed lights. Manual scene objects and non-illumiDrop lights are not managed by the Looks system.</div></div>
+</section>
+
 <!-- ─── 14. VIEWPORT GUIDES ──────────────────────────────────── -->
 <section class="section" id="viewport-guides">
-<h2><span class="h2-num">14</span> Viewport Guides</h2>
-<p>After placing an area or HDR area light, illumiDrop draws a viewport guide that visualizes the relationship between the light and the surface point it was placed from (the anchor).</p>
+<h2><span class="h2-num">17</span> Viewport Guides</h2>
+<p>After placing an area or HDR area light, illumiDrop draws a viewport guide that visualizes the relationship between the placed light and the surface point it was placed from.</p>
 <h3>Guide Elements</h3>
 <ul style="margin-left:20px;margin-bottom:12px;">
 <li style="margin-bottom:6px;"><strong>Guide line</strong> — a line from the light to the anchor point on the surface.</li>
@@ -2001,12 +2084,12 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </div>
 <div class="callout tip">
 <span class="callout-icon">✓</span>
-<div>illumiDrop lights, placement guides, textures, ramps, and dome rotation are saved with the Maya scene, so you can reopen the file and continue working. Dome lights do not have viewport guides. Guide nodes are internal helper objects — do not manually edit or delete them.</div>
+<div>illumiDrop lights, placement guides, custom offsets, looks, textures, ramps, and dome rotation are saved with the Maya scene, so you can reopen the file and continue working. Dome lights do not have viewport guides. Guide nodes are internal helper objects — do not manually edit or delete them.</div>
 </div>
 </section>
 <!-- ─── 15. BROWSER INTERACTIONS ──────────────────────────────── -->
 <section class="section" id="browser-usage">
-<h2><span class="h2-num">15</span> HDR Browser — Detailed Interactions</h2>
+<h2><span class="h2-num">18</span> HDR Browser — Detailed Interactions</h2>
 <h3>Hover Preview</h3>
 <p>Hovering over a thumbnail shows a larger preview popup near the cursor after a short delay. The popup size and delay are configurable in <a href="#settings">Settings</a>.</p>
 <h3>Multiple Thumbnail Selection</h3>
@@ -2021,8 +2104,8 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 <tr><td>Generate Preview</td><td>Generates a sidecar .jpg preview for this image (if one does not exist).</td></tr>
 <tr><td>Regenerate Preview</td><td>Rebuilds the existing sidecar .jpg preview, even if one already exists.</td></tr>
 <tr><td>Generate / Regenerate Preview for Selected</td><td>Batch preview generation for all selected thumbnails.</td></tr>
-<tr><td>Create New HDR Light</td><td>Creates a new area HDR light with this image, regardless of current tab.</td></tr>
-<tr><td>Create New Dome Light</td><td>Creates a new dome light with this image, regardless of current tab.</td></tr>
+<tr><td>Create New HDR Light</td><td>Creates a new area HDR light with this image. Available from the HDR Lights tab.</td></tr>
+<tr><td>Create New Dome Light</td><td>Creates a new dome light with this image. Available from the Dome tab.</td></tr>
 <tr><td>Open Image Folder</td><td>Opens the folder containing this image in your OS file browser.</td></tr>
 </tbody>
 </table>
@@ -2030,17 +2113,17 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 16. PREVIEW GENERATION ──────────────────────────────── -->
 <section class="section" id="preview-gen">
-<h2><span class="h2-num">16</span> Preview Generation</h2>
-<p>illumiDrop displays existing sidecar JPEG previews when they are available alongside the source <code>.hdr</code>, <code>.hdri</code>, or <code>.exr</code> file. To create or refresh previews, right-click a thumbnail and choose <strong>Generate Preview</strong> or <strong>Regenerate Preview</strong>.</p>
+<h2><span class="h2-num">19</span> Preview Generation</h2>
+<p>illumiDrop displays existing sidecar <code>.jpg</code>, <code>.jpeg</code>, or <code>.png</code> previews when they are available alongside the source <code>.hdr</code>, <code>.hdri</code>, or <code>.exr</code> file. Generated previews are saved as <code>.jpg</code> files. To create or refresh previews, right-click a thumbnail and choose <strong>Generate Preview</strong> or <strong>Regenerate Preview</strong>.</p>
 
-<h3>Missing Preview Thumbnails</h3><p>If no sidecar JPEG preview is found, illumiDrop shows a default thumbnail so the file can still be selected, assigned, or used to create a light. Generate a preview from the thumbnail context menu when you want an image preview.</p><div class="fallback-preview-grid"><div class="fallback-preview-card"><img alt="Default HDR Light Thumbnail" src="images/default-hdr-light.svg"/><div><div class="fallback-preview-title">Default HDR Light Thumbnail</div><div class="fallback-preview-body">Used in the HDR Lights tab when no preview image exists.</div></div></div><div class="fallback-preview-card"><img alt="Default Dome Thumbnail" src="images/default-hdr-dome.svg"/><div><div class="fallback-preview-title">Default Dome Thumbnail</div><div class="fallback-preview-body">Used in the Dome tab when no preview image exists.</div></div></div></div><h3>Where Previews Are Saved</h3>
+<h3>Missing Preview Thumbnails</h3><p>If no sidecar preview is found, illumiDrop shows a default thumbnail so the file can still be selected, assigned, or used to create a light. Generate a preview from the thumbnail context menu when you want an image preview.</p><div class="fallback-preview-grid"><div class="fallback-preview-card"><img alt="Default HDR Light Thumbnail" src="images/default-hdr-light.svg"/><div><div class="fallback-preview-title">Default HDR Light Thumbnail</div><div class="fallback-preview-body">Used in the HDR Lights tab when no preview image exists.</div></div></div><div class="fallback-preview-card"><img alt="Default Dome Thumbnail" src="images/default-hdr-dome.svg"/><div><div class="fallback-preview-title">Default Dome Thumbnail</div><div class="fallback-preview-body">Used in the Dome tab when no preview image exists.</div></div></div></div><h3>Where Previews Are Saved</h3>
 <p>Sidecar previews are saved as <code>.jpg</code> files in the <strong>same folder as the source HDR/EXR file</strong>. Write permission to that folder is required.</p>
 <div class="callout warning">
 <span class="callout-icon">⚠</span>
 <div><strong>Permission requirement:</strong> If the HDR folder is on a read-only network path or a protected directory, preview generation will fail. Move or copy images to a writable location first.</div>
 </div>
 <h3>Preview Job Behavior</h3>
-<p>Large preview batches may take longer. You can continue working while previews are being generated, but closing illumiDrop will stop the preview job.</p>
+<p>Large preview batches may take longer. v1.1.0 handles larger batches more safely in a separate preview process, helping Maya stay responsive while previews are generated. You can continue working while previews are being generated, but closing illumiDrop will stop the preview job.</p>
 <div class="callout info">
 <span class="callout-icon">ℹ</span>
 <div>If you close illumiDrop while a preview job is running, you will be prompted to confirm. Closing will stop the preview generation.</div>
@@ -2048,20 +2131,22 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </section>
 <!-- ─── 17. CONTEXT MENUS ─────────────────────────────────────── -->
 <section class="section" id="context-menus">
-<h2><span class="h2-num">17</span> Context Menus Reference</h2>
+<h2><span class="h2-num">20</span> Context Menus Reference</h2>
 <h3>Light Row Right-Click Menu</h3>
+<p>The light row menu contains common actions for the selected light. Some commands change depending on light type and selection state.</p>
 <div class="tbl-wrap">
 <table>
 <thead><tr><th>Command</th><th>Description</th></tr></thead>
 <tbody>
 <tr><td>Rename</td><td>Rename the light. Locked lights cannot be renamed.</td></tr>
-<tr><td>Duplicate</td><td>Duplicate the light(s). Preserves anchor data.</td></tr>
+<tr><td>Duplicate</td><td>Duplicate the light(s). Preserves placement data, texture/ramp setup, and custom offset where possible.</td></tr>
 <tr><td>Solo</td><td>Hide all other managed lights; show only this one.</td></tr>
 <tr><td>Unsolo</td><td>Restore pre-solo visibility state.</td></tr>
 <tr><td>Show</td><td>Make selected lights visible. (Multi-select only)</td></tr>
 <tr><td>Hide</td><td>Hide selected lights. (Multi-select only)</td></tr>
 <tr><td>Lock</td><td>Lock the selected light(s).</td></tr>
 <tr><td>Unlock</td><td>Unlock the selected light(s).</td></tr>
+<tr><td>Reset Custom Offset</td><td>Reset manual position/rotation offset on an area or HDR area light.</td></tr>
 <tr><td>Reset Rotation</td><td>Reset dome rotation to default. (Dome lights only)</td></tr>
 <tr><td>Open Attribute Editor</td><td>Open the light's Attribute Editor in Maya. Same as double-clicking the name.</td></tr>
 <tr><td>Delete</td><td>Delete the selected light(s). Locked lights are skipped.</td></tr>
@@ -2084,12 +2169,24 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 </tbody>
 </table>
 </div>
+<h3>Look Button Right-Click Menu</h3>
+<div class="tbl-wrap">
+<table>
+<thead><tr><th>Command</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Save Current Look</td><td>Save the current lighting setup into this Look. If the Look already exists, this overwrites the saved setup.</td></tr>
+<tr><td>Restore Look</td><td>Restore the saved lighting setup. Available only for saved Looks.</td></tr>
+<tr><td>Rename Look</td><td>Rename the saved Look. Available only for saved Looks.</td></tr>
+<tr><td>Clear Look</td><td>Clear the saved Look data. This does not delete the current scene lights.</td></tr>
+</tbody>
+</table>
+</div>
 <h3>HDR Thumbnail Right-Click Menu</h3>
 <p>See <a href="#browser-usage">HDR Browser — Detailed Interactions</a> for the full thumbnail context menu reference.</p>
 </section>
 <!-- ─── 18. SETTINGS ──────────────────────────────────────────── -->
 <section class="section" id="settings">
-<h2><span class="h2-num">18</span> Settings</h2>
+<h2><span class="h2-num">21</span> Settings</h2>
 <p>Open Settings from the <strong>⚙ gear button</strong> at the top of the left panel. Preferences are saved in your Maya user preferences and persist across Maya sessions.</p>
 <h3>Placement</h3>
 <div class="tbl-wrap">
@@ -2111,14 +2208,22 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 <tr><td>Hover Preview</td><td>Size of the hover preview popup in the HDR browser (Off / Small / Medium / Large).</td></tr>
 <tr><td>Light List Preview</td><td>Size of the preview popup when hovering over the texture square in the light list (Off / Small / Medium / Large).</td></tr>
 <tr><td>Preview Delay</td><td>How quickly hover previews appear (Fast / Normal / Slow).</td></tr>
+<tr><td>Look Warnings</td><td>Show or hide confirmation warnings before overwriting or clearing saved Looks (On / Off). Enabled by default.</td></tr>
 </tbody>
 </table>
 </div>
 <h3>UI Scale</h3>
-<p>Scale the entire illumiDrop UI to better fit your screen or display DPI. Options: 100%, 125%, 150%, 200%. Changing this setting restarts the panel automatically.</p>
+<div class="tbl-wrap">
+<table>
+<thead><tr><th>Setting</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>UI Scale</td><td>Scale the entire illumiDrop UI to better fit your screen or display DPI. Options: 100%, 125%, 150%, 200%. Changing this setting restarts the panel automatically.</td></tr>
+</tbody>
+</table>
+</div>
 </section>
 <section class="section" id="troubleshooting">
-<h2><span class="h2-num">19</span> Troubleshooting &amp; Support</h2>
+<h2><span class="h2-num">22</span> Troubleshooting &amp; Support</h2>
 <p>If something does not work as expected, check the items below first.</p>
 <div class="tbl-wrap">
 <table>
@@ -2156,9 +2261,18 @@ illumiDrop.<span class="fn">toggle_tool</span>()</code></pre>
 <td>Guide remains after deleting a light outside illumiDrop</td>
 <td>Open or refresh illumiDrop. Orphan guides are cleaned automatically during scene sync.</td>
 </tr>
+<tr>
+<td>A light appears with a helper group in the Outliner</td>
+<td>This is normal in v1.1.0. The helper group allows illumiDrop to keep manual offset adjustments while still placing the light from surface clicks.</td>
+</tr>
+<tr>
+<td>The active look is marked as modified</td>
+<td>The current lighting setup is different from the saved look. Save the current setup to the Look if you want to keep the changes, or switch Looks if you want to restore another saved setup.</td>
+</tr>
 </tbody>
 </table>
 </div>
+<div class="callout tip"><span class="callout-icon">✓</span><div>Scenes created with earlier illumiDrop versions are updated automatically when possible. For important production scenes, save a backup before updating, as you would with any plugin version change.</div></div>
 <div class="callout info">
 <span class="callout-icon">ℹ</span>
 <div>For questions, bug reports, or support, contact: <a href="mailto:hello.illumidrop@gmail.com" style="color:var(--accent-hi);">hello.illumidrop@gmail.com</a></div>
